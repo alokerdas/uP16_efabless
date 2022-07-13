@@ -78,16 +78,22 @@ module user_project_wrapper #(
     output [2:0] user_irq
 );
 
+wire [9:0] adr_mem;
+wire [11:0] adr_cpu;
+wire [15:0] cpdatin, cpdatout, memdatin, memdatout;
+wire cpuen, cpurw, memrw, memen, enkbd, endisp, rst, clk;
+
 /*--------------------------------------*/
 /* User project is instantiated  here   */
 /*--------------------------------------*/
 
-user_proj_example mprj (
+soc_config mprj (
 `ifdef USE_POWER_PINS
-	.vccd1(vccd1),	// User area 1 1.8V power
-	.vssd1(vssd1),	// User area 1 digital ground
+    .vccd1(vccd1),	// User area 1 1.8V power
+    .vssd1(vssd1),	// User area 1 digital ground
 `endif
 
+    .user_clock2(user_clock2),
     .wb_clk_i(wb_clk_i),
     .wb_rst_i(wb_rst_i),
 
@@ -114,8 +120,71 @@ user_proj_example mprj (
     .io_out(io_out),
     .io_oeb(io_oeb),
 
+    // CPU specific
+    .addr_from_cpu(adr_cpu),
+    .data_from_cpu(cpdatout),
+    .data_to_cpu(cpdatin),
+    .addr_to_mem(adr_mem),
+    .data_from_mem(memdatin),
+    .data_to_mem(memdatout),
+    .rw_from_cpu(cpurw),
+    .en_from_cpu(cpuen),
+    .rw_to_mem(memrw),
+    .en_to_mem(memen),
+    .en_keyboard(enkbd),
+    .en_display(endisp),
+    .soc_clk(clk),
+    .soc_rst(rst),
+
     // IRQ
     .irq(user_irq)
+);
+
+cpu cpu0 (
+`ifdef USE_POWER_PINS
+    .vccd1(vccd1),	// User area 1 1.8V power
+    .vssd1(vssd1),	// User area 1 digital ground
+`endif
+
+    .clk(clk),
+    .addr(adr_cpu),
+    .datain(cpdatin), 
+    .dataout(cpdatout),
+    .en_inp(enkbd),
+    .en_out(endisp),
+    .rdwr(cpurw),
+    .en(cpuen),
+    .rst(rst),
+    .keyboard(io_in[37:30]),
+    .display(io_out[29:22]) 
+);
+
+sky130_sram_1kbyte_1rw1r_8x1024_8 #(.NUM_WMASKS(2)) memLword (
+`ifdef USE_POWER_PINS
+    .vccd1(vccd1),	// User area 1 1.8V power
+    .vssd1(vssd1),	// User area 1 digital ground
+`endif
+    .clk0(clk),
+    .addr0(adr_mem),
+    .din0(memdatout[7:0]),
+    .dout0(memdatin[7:0]),
+    .web0(memrw),
+    .csb0(memen),
+    .wmask0({cpuen, cpuen})
+);
+
+    sky130_sram_1kbyte_1rw1r_8x1024_8 #(.NUM_WMASKS(2)) memHword (
+`ifdef USE_POWER_PINS
+    .vccd1(vccd1),	// User area 1 1.8V power
+    .vssd1(vssd1),	// User area 1 digital ground
+`endif
+    .clk0(clk),
+    .addr0(adr_mem),
+    .din0(memdatout[15:8]),
+    .dout0(memdatin[15:8]),
+    .web0(memrw),
+    .csb0(memen),
+    .wmask0({cpuen, cpuen})
 );
 
 endmodule	// user_project_wrapper

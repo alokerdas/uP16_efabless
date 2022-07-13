@@ -1,12 +1,9 @@
-# Caravel User Project
+# ISA 16-bit microprocessor
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![UPRJ_CI](https://github.com/efabless/caravel_project_example/actions/workflows/user_project_ci.yml/badge.svg)](https://github.com/efabless/caravel_project_example/actions/workflows/user_project_ci.yml) [![Caravel Build](https://github.com/efabless/caravel_project_example/actions/workflows/caravel_build.yml/badge.svg)](https://github.com/efabless/caravel_project_example/actions/workflows/caravel_build.yml)
+This is the next version of the SOC. 1KB of memory has been added.
+The memory can be loadded via logic analyzer bus from management core.
+Then the program and data can be used from memory.
 
-| :exclamation: Important Note            |
-|-----------------------------------------|
-
-## Please fill in your project documentation in this README.md file 
-
-Refer to [README](docs/source/quickstart.rst) for a quick start of how to use caravel_user_project
-
-Refer to [README](docs/source/index.rst) for this sample project documentation. 
+The clock can be chosen from wishbone clock or user_clock2 or external.
+The reset can be chosen from wishbone reset or external pin.
+A soc configuration block has been aceated to control memory and cpu.
