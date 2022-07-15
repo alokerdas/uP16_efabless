@@ -53,8 +53,279 @@ module user_project_wrapper (user_clock2,
  output [31:0] wbs_dat_o;
  input [3:0] wbs_sel_i;
 
+ wire \adr_cpu[0] ;
+ wire \adr_cpu[10] ;
+ wire \adr_cpu[11] ;
+ wire \adr_cpu[1] ;
+ wire \adr_cpu[2] ;
+ wire \adr_cpu[3] ;
+ wire \adr_cpu[4] ;
+ wire \adr_cpu[5] ;
+ wire \adr_cpu[6] ;
+ wire \adr_cpu[7] ;
+ wire \adr_cpu[8] ;
+ wire \adr_cpu[9] ;
+ wire \adr_mem[0] ;
+ wire \adr_mem[1] ;
+ wire \adr_mem[2] ;
+ wire \adr_mem[3] ;
+ wire \adr_mem[4] ;
+ wire \adr_mem[5] ;
+ wire \adr_mem[6] ;
+ wire \adr_mem[7] ;
+ wire \adr_mem[8] ;
+ wire \adr_mem[9] ;
+ wire clk;
+ wire \cpdatin[0] ;
+ wire \cpdatin[10] ;
+ wire \cpdatin[11] ;
+ wire \cpdatin[12] ;
+ wire \cpdatin[13] ;
+ wire \cpdatin[14] ;
+ wire \cpdatin[15] ;
+ wire \cpdatin[1] ;
+ wire \cpdatin[2] ;
+ wire \cpdatin[3] ;
+ wire \cpdatin[4] ;
+ wire \cpdatin[5] ;
+ wire \cpdatin[6] ;
+ wire \cpdatin[7] ;
+ wire \cpdatin[8] ;
+ wire \cpdatin[9] ;
+ wire \cpdatout[0] ;
+ wire \cpdatout[10] ;
+ wire \cpdatout[11] ;
+ wire \cpdatout[12] ;
+ wire \cpdatout[13] ;
+ wire \cpdatout[14] ;
+ wire \cpdatout[15] ;
+ wire \cpdatout[1] ;
+ wire \cpdatout[2] ;
+ wire \cpdatout[3] ;
+ wire \cpdatout[4] ;
+ wire \cpdatout[5] ;
+ wire \cpdatout[6] ;
+ wire \cpdatout[7] ;
+ wire \cpdatout[8] ;
+ wire \cpdatout[9] ;
+ wire cpuen;
+ wire cpurw;
+ wire endisp;
+ wire enkbd;
+ wire \memdatin[0] ;
+ wire \memdatin[10] ;
+ wire \memdatin[11] ;
+ wire \memdatin[12] ;
+ wire \memdatin[13] ;
+ wire \memdatin[14] ;
+ wire \memdatin[15] ;
+ wire \memdatin[1] ;
+ wire \memdatin[2] ;
+ wire \memdatin[3] ;
+ wire \memdatin[4] ;
+ wire \memdatin[5] ;
+ wire \memdatin[6] ;
+ wire \memdatin[7] ;
+ wire \memdatin[8] ;
+ wire \memdatin[9] ;
+ wire \memdatout[0] ;
+ wire \memdatout[10] ;
+ wire \memdatout[11] ;
+ wire \memdatout[12] ;
+ wire \memdatout[13] ;
+ wire \memdatout[14] ;
+ wire \memdatout[15] ;
+ wire \memdatout[1] ;
+ wire \memdatout[2] ;
+ wire \memdatout[3] ;
+ wire \memdatout[4] ;
+ wire \memdatout[5] ;
+ wire \memdatout[6] ;
+ wire \memdatout[7] ;
+ wire \memdatout[8] ;
+ wire \memdatout[9] ;
+ wire memen;
+ wire memrw;
+ wire rst;
 
- user_proj_example mprj (.vccd1(vccd1),
+ cpu cpu0 (.clk(clk),
+    .en(cpuen),
+    .en_inp(enkbd),
+    .en_out(endisp),
+    .rdwr(cpurw),
+    .rst(rst),
+    .vccd1(vccd1),
+    .vssd1(vssd1),
+    .addr({\adr_cpu[11] ,
+    \adr_cpu[10] ,
+    \adr_cpu[9] ,
+    \adr_cpu[8] ,
+    \adr_cpu[7] ,
+    \adr_cpu[6] ,
+    \adr_cpu[5] ,
+    \adr_cpu[4] ,
+    \adr_cpu[3] ,
+    \adr_cpu[2] ,
+    \adr_cpu[1] ,
+    \adr_cpu[0] }),
+    .datain({\cpdatin[15] ,
+    \cpdatin[14] ,
+    \cpdatin[13] ,
+    \cpdatin[12] ,
+    \cpdatin[11] ,
+    \cpdatin[10] ,
+    \cpdatin[9] ,
+    \cpdatin[8] ,
+    \cpdatin[7] ,
+    \cpdatin[6] ,
+    \cpdatin[5] ,
+    \cpdatin[4] ,
+    \cpdatin[3] ,
+    \cpdatin[2] ,
+    \cpdatin[1] ,
+    \cpdatin[0] }),
+    .dataout({\cpdatout[15] ,
+    \cpdatout[14] ,
+    \cpdatout[13] ,
+    \cpdatout[12] ,
+    \cpdatout[11] ,
+    \cpdatout[10] ,
+    \cpdatout[9] ,
+    \cpdatout[8] ,
+    \cpdatout[7] ,
+    \cpdatout[6] ,
+    \cpdatout[5] ,
+    \cpdatout[4] ,
+    \cpdatout[3] ,
+    \cpdatout[2] ,
+    \cpdatout[1] ,
+    \cpdatout[0] }),
+    .display({io_out[29],
+    io_out[28],
+    io_out[27],
+    io_out[26],
+    io_out[25],
+    io_out[24],
+    io_out[23],
+    io_out[22]}),
+    .keyboard({io_in[37],
+    io_in[36],
+    io_in[35],
+    io_in[34],
+    io_in[33],
+    io_in[32],
+    io_in[31],
+    io_in[30]}));
+ sky130_sram_1kbyte_1rw1r_8x1024_8 memHword (.csb0(memen),
+    .web0(memrw),
+    .clk0(clk),
+    .vccd1(vccd1),
+    .vssd1(vssd1),
+    .addr0({\adr_mem[9] ,
+    \adr_mem[8] ,
+    \adr_mem[7] ,
+    \adr_mem[6] ,
+    \adr_mem[5] ,
+    \adr_mem[4] ,
+    \adr_mem[3] ,
+    \adr_mem[2] ,
+    \adr_mem[1] ,
+    \adr_mem[0] }),
+    .addr1({_NC1,
+    _NC2,
+    _NC3,
+    _NC4,
+    _NC5,
+    _NC6,
+    _NC7,
+    _NC8,
+    _NC9,
+    _NC10}),
+    .din0({\memdatout[15] ,
+    \memdatout[14] ,
+    \memdatout[13] ,
+    \memdatout[12] ,
+    \memdatout[11] ,
+    \memdatout[10] ,
+    \memdatout[9] ,
+    \memdatout[8] }),
+    .dout0({\memdatin[15] ,
+    \memdatin[14] ,
+    \memdatin[13] ,
+    \memdatin[12] ,
+    \memdatin[11] ,
+    \memdatin[10] ,
+    \memdatin[9] ,
+    \memdatin[8] }),
+    .dout1({_NC11,
+    _NC12,
+    _NC13,
+    _NC14,
+    _NC15,
+    _NC16,
+    _NC17,
+    _NC18}),
+    .wmask0({_NC19}));
+ sky130_sram_1kbyte_1rw1r_8x1024_8 memLword (.csb0(memen),
+    .web0(memrw),
+    .clk0(clk),
+    .vccd1(vccd1),
+    .vssd1(vssd1),
+    .addr0({\adr_mem[9] ,
+    \adr_mem[8] ,
+    \adr_mem[7] ,
+    \adr_mem[6] ,
+    \adr_mem[5] ,
+    \adr_mem[4] ,
+    \adr_mem[3] ,
+    \adr_mem[2] ,
+    \adr_mem[1] ,
+    \adr_mem[0] }),
+    .addr1({_NC20,
+    _NC21,
+    _NC22,
+    _NC23,
+    _NC24,
+    _NC25,
+    _NC26,
+    _NC27,
+    _NC28,
+    _NC29}),
+    .din0({\memdatout[7] ,
+    \memdatout[6] ,
+    \memdatout[5] ,
+    \memdatout[4] ,
+    \memdatout[3] ,
+    \memdatout[2] ,
+    \memdatout[1] ,
+    \memdatout[0] }),
+    .dout0({\memdatin[7] ,
+    \memdatin[6] ,
+    \memdatin[5] ,
+    \memdatin[4] ,
+    \memdatin[3] ,
+    \memdatin[2] ,
+    \memdatin[1] ,
+    \memdatin[0] }),
+    .dout1({_NC30,
+    _NC31,
+    _NC32,
+    _NC33,
+    _NC34,
+    _NC35,
+    _NC36,
+    _NC37}),
+    .wmask0({_NC38}));
+ soc_config mprj (.en_display(endisp),
+    .en_from_cpu(cpuen),
+    .en_keyboard(enkbd),
+    .en_to_mem(memen),
+    .rw_from_cpu(cpurw),
+    .rw_to_mem(memrw),
+    .soc_clk(clk),
+    .soc_rst(rst),
+    .user_clock2(user_clock2),
+    .vccd1(vccd1),
     .vssd1(vssd1),
     .wb_clk_i(wb_clk_i),
     .wb_rst_i(wb_rst_i),
@@ -62,6 +333,92 @@ module user_project_wrapper (user_clock2,
     .wbs_cyc_i(wbs_cyc_i),
     .wbs_stb_i(wbs_stb_i),
     .wbs_we_i(wbs_we_i),
+    .addr_from_cpu({\adr_cpu[11] ,
+    \adr_cpu[10] ,
+    \adr_cpu[9] ,
+    \adr_cpu[8] ,
+    \adr_cpu[7] ,
+    \adr_cpu[6] ,
+    \adr_cpu[5] ,
+    \adr_cpu[4] ,
+    \adr_cpu[3] ,
+    \adr_cpu[2] ,
+    \adr_cpu[1] ,
+    \adr_cpu[0] }),
+    .addr_to_mem({\adr_mem[9] ,
+    \adr_mem[8] ,
+    \adr_mem[7] ,
+    \adr_mem[6] ,
+    \adr_mem[5] ,
+    \adr_mem[4] ,
+    \adr_mem[3] ,
+    \adr_mem[2] ,
+    \adr_mem[1] ,
+    \adr_mem[0] }),
+    .data_from_cpu({\cpdatout[15] ,
+    \cpdatout[14] ,
+    \cpdatout[13] ,
+    \cpdatout[12] ,
+    \cpdatout[11] ,
+    \cpdatout[10] ,
+    \cpdatout[9] ,
+    \cpdatout[8] ,
+    \cpdatout[7] ,
+    \cpdatout[6] ,
+    \cpdatout[5] ,
+    \cpdatout[4] ,
+    \cpdatout[3] ,
+    \cpdatout[2] ,
+    \cpdatout[1] ,
+    \cpdatout[0] }),
+    .data_from_mem({\memdatin[15] ,
+    \memdatin[14] ,
+    \memdatin[13] ,
+    \memdatin[12] ,
+    \memdatin[11] ,
+    \memdatin[10] ,
+    \memdatin[9] ,
+    \memdatin[8] ,
+    \memdatin[7] ,
+    \memdatin[6] ,
+    \memdatin[5] ,
+    \memdatin[4] ,
+    \memdatin[3] ,
+    \memdatin[2] ,
+    \memdatin[1] ,
+    \memdatin[0] }),
+    .data_to_cpu({\cpdatin[15] ,
+    \cpdatin[14] ,
+    \cpdatin[13] ,
+    \cpdatin[12] ,
+    \cpdatin[11] ,
+    \cpdatin[10] ,
+    \cpdatin[9] ,
+    \cpdatin[8] ,
+    \cpdatin[7] ,
+    \cpdatin[6] ,
+    \cpdatin[5] ,
+    \cpdatin[4] ,
+    \cpdatin[3] ,
+    \cpdatin[2] ,
+    \cpdatin[1] ,
+    \cpdatin[0] }),
+    .data_to_mem({\memdatout[15] ,
+    \memdatout[14] ,
+    \memdatout[13] ,
+    \memdatout[12] ,
+    \memdatout[11] ,
+    \memdatout[10] ,
+    \memdatout[9] ,
+    \memdatout[8] ,
+    \memdatout[7] ,
+    \memdatout[6] ,
+    \memdatout[5] ,
+    \memdatout[4] ,
+    \memdatout[3] ,
+    \memdatout[2] ,
+    \memdatout[1] ,
+    \memdatout[0] }),
     .io_in({io_in[37],
     io_in[36],
     io_in[35],
