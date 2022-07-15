@@ -46,10 +46,10 @@ set ::env(CLOCK_PERIOD) "10"
 ## Internal Macros
 ### Macro PDN Connections
 set ::env(FP_PDN_MACRO_HOOKS) "\
-	mprj vccd1 vssd1 vccd1 vssd1 \
-	cpu0 vccd1 vssd1 vccd1 vssd1 \
-	memLword vccd1 vssd1 vccd1 vssd1 \
-	memLword vccd1 vssd1 vccd1 vssd1"
+	mprj vccd1 vssd1 vccd1 vssd1, \
+	cpu0 vccd1 vssd1 vccd1 vssd1, \
+	memLword vccd1 vssd1 vccd1 vssd1, \
+	memHword vccd1 vssd1 vccd1 vssd1"
 
 ### Macro Placement
 set ::env(MACRO_PLACEMENT_CFG) $script_dir/macro.cfg
@@ -96,5 +96,3 @@ set ::env(CLOCK_TREE_SYNTH) 0
 
 set ::env(RUN_KLAYOUT_DRC) 0
 set ::env(RUN_MAGIC_DRC) 0
-set ::env(LVS_INSERT_POWER_PINS) 0
-set ::env(QUIT_ON_LVS_ERROR) 0
