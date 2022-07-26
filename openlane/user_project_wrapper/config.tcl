@@ -48,8 +48,14 @@ set ::env(CLOCK_PERIOD) "10"
 set ::env(FP_PDN_MACRO_HOOKS) "\
 	mprj vccd1 vssd1 vccd1 vssd1, \
 	cpu0 vccd1 vssd1 vccd1 vssd1, \
-	memLword vccd1 vssd1 vccd1 vssd1, \
-	memHword vccd1 vssd1 vccd1 vssd1"
+	memLword0 vccd1 vssd1 vccd1 vssd1, \
+	memHword0 vccd1 vssd1 vccd1 vssd1, \
+	memLword1 vccd1 vssd1 vccd1 vssd1, \
+	memHword1 vccd1 vssd1 vccd1 vssd1, \
+	memLword2 vccd1 vssd1 vccd1 vssd1, \
+	memHword2 vccd1 vssd1 vccd1 vssd1, \
+	memLword3 vccd1 vssd1 vccd1 vssd1, \
+	memHword3 vccd1 vssd1 vccd1 vssd1"
 
 ### Macro Placement
 set ::env(MACRO_PLACEMENT_CFG) $script_dir/macro.cfg
@@ -94,5 +100,4 @@ set ::env(FILL_INSERTION) 0
 set ::env(TAP_DECAP_INSERTION) 0
 set ::env(CLOCK_TREE_SYNTH) 0
 
-set ::env(RUN_KLAYOUT_DRC) 0
 set ::env(RUN_MAGIC_DRC) 0

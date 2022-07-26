@@ -14,6 +14,25 @@
 // SPDX-License-Identifier: Apache-2.0
 
 `default_nettype none
+/*________________________________________
+            2:4 Decoder logic
+______________________________________*/
+module DECODER2x4 (
+  d,
+  e,
+  a
+);
+  input [1:0] a;
+  input e;
+  output [3:0] d;
+
+  assign d[0] = ~a[1] & ~a[0] & e;
+  assign d[1] = ~a[1] &  a[0] & e;
+  assign d[2] =  a[1] & ~a[0] & e;
+  assign d[3] =  a[1] &  a[0] & e;
+
+endmodule
+
 /*
  *-------------------------------------------------------------
  *
@@ -55,7 +74,7 @@ module soc_config #(
     // IRQ
     output [2:0] irq,
 
-    // CPU specific
+    // CPU/MEMORY specific
     input rw_from_cpu,
     input en_from_cpu,
     input [11:0] addr_from_cpu,
@@ -64,20 +83,20 @@ module soc_config #(
     input [15:0] data_from_mem,
     output [15:0] data_to_mem,
     output [9:0] addr_to_mem,
+    output [3:0] en_to_memB,
     output rw_to_mem,
-    output en_to_mem,
     output en_keyboard,
     output en_display,
     output soc_rst,
     output soc_clk
 );
-    wire rst;
-
     wire [`MPRJ_IO_PADS-1:0] io_in;
     wire [`MPRJ_IO_PADS-1:0] io_out;
     wire [`MPRJ_IO_PADS-1:0] io_oeb;
 
-    wire rw, n;
+    wire [3:0] en_to_mems;
+    wire [1:0] addr_to_decod;
+    wire n, rw, rst, en_to_decod;
 
     // IRQ
     assign irq = 3'b000;	// Unused
@@ -98,12 +117,15 @@ module soc_config #(
 
     // Provision to read/write ram from LA
     assign data_to_mem = la_data_in[127] ? la_data_in[126:111] : data_from_cpu;
-    assign addr_to_mem = la_data_in[127] ? la_data_in[110:101] : addr_from_cpu[9:0];
-    assign rw_to_mem = la_data_in[127] ? la_data_in[100] : ~rw_from_cpu; // active low for openram
-    assign en_to_mem = la_data_in[127] ? la_data_in[99] : ~en_from_cpu; // active low for openram
+    assign addr_to_decod = la_data_in[127] ? la_data_in[110:109] : addr_from_cpu[9:0];
+    assign addr_to_mem = la_data_in[127] ? la_data_in[108:99] : addr_from_cpu[9:0];
+    assign rw_to_mem = la_data_in[127] ? la_data_in[98] : ~rw_from_cpu; // active low for openram
+    assign en_to_decod = la_data_in[127] ? la_data_in[97] : en_from_cpu;
     assign data_to_cpu = data_from_mem;
-    assign la_data_out[98:83] = data_from_mem;
+    assign la_data_out[96:81] = data_from_mem;
+    assign en_to_memB = ~en_to_mems; // active low for openram
 
+    DECODER2x4 decodHadr(.d(en_to_mems), .a(addr_to_decod), .e(en_to_decod));
 endmodule
 
 `default_nettype wire
