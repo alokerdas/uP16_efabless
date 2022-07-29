@@ -1,6 +1,6 @@
 # ISA 16-bit microprocessor
 
-This is the next version of the SOC. 1KB of memory has been added.
+This is the next version of the SOC. 8KB of memory has been added.
 The memory can be loadded via logic analyzer bus from management core.
 Then the program and data can be used from memory.
 

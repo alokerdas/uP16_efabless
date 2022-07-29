@@ -112,22 +112,70 @@ module user_project_wrapper (user_clock2,
  wire cpurw;
  wire endisp;
  wire enkbd;
- wire \memdatin[0] ;
- wire \memdatin[10] ;
- wire \memdatin[11] ;
- wire \memdatin[12] ;
- wire \memdatin[13] ;
- wire \memdatin[14] ;
- wire \memdatin[15] ;
- wire \memdatin[1] ;
- wire \memdatin[2] ;
- wire \memdatin[3] ;
- wire \memdatin[4] ;
- wire \memdatin[5] ;
- wire \memdatin[6] ;
- wire \memdatin[7] ;
- wire \memdatin[8] ;
- wire \memdatin[9] ;
+ wire \memdatin0[0] ;
+ wire \memdatin0[10] ;
+ wire \memdatin0[11] ;
+ wire \memdatin0[12] ;
+ wire \memdatin0[13] ;
+ wire \memdatin0[14] ;
+ wire \memdatin0[15] ;
+ wire \memdatin0[1] ;
+ wire \memdatin0[2] ;
+ wire \memdatin0[3] ;
+ wire \memdatin0[4] ;
+ wire \memdatin0[5] ;
+ wire \memdatin0[6] ;
+ wire \memdatin0[7] ;
+ wire \memdatin0[8] ;
+ wire \memdatin0[9] ;
+ wire \memdatin1[0] ;
+ wire \memdatin1[10] ;
+ wire \memdatin1[11] ;
+ wire \memdatin1[12] ;
+ wire \memdatin1[13] ;
+ wire \memdatin1[14] ;
+ wire \memdatin1[15] ;
+ wire \memdatin1[1] ;
+ wire \memdatin1[2] ;
+ wire \memdatin1[3] ;
+ wire \memdatin1[4] ;
+ wire \memdatin1[5] ;
+ wire \memdatin1[6] ;
+ wire \memdatin1[7] ;
+ wire \memdatin1[8] ;
+ wire \memdatin1[9] ;
+ wire \memdatin2[0] ;
+ wire \memdatin2[10] ;
+ wire \memdatin2[11] ;
+ wire \memdatin2[12] ;
+ wire \memdatin2[13] ;
+ wire \memdatin2[14] ;
+ wire \memdatin2[15] ;
+ wire \memdatin2[1] ;
+ wire \memdatin2[2] ;
+ wire \memdatin2[3] ;
+ wire \memdatin2[4] ;
+ wire \memdatin2[5] ;
+ wire \memdatin2[6] ;
+ wire \memdatin2[7] ;
+ wire \memdatin2[8] ;
+ wire \memdatin2[9] ;
+ wire \memdatin3[0] ;
+ wire \memdatin3[10] ;
+ wire \memdatin3[11] ;
+ wire \memdatin3[12] ;
+ wire \memdatin3[13] ;
+ wire \memdatin3[14] ;
+ wire \memdatin3[15] ;
+ wire \memdatin3[1] ;
+ wire \memdatin3[2] ;
+ wire \memdatin3[3] ;
+ wire \memdatin3[4] ;
+ wire \memdatin3[5] ;
+ wire \memdatin3[6] ;
+ wire \memdatin3[7] ;
+ wire \memdatin3[8] ;
+ wire \memdatin3[9] ;
  wire \memdatout[0] ;
  wire \memdatout[10] ;
  wire \memdatout[11] ;
@@ -252,14 +300,14 @@ module user_project_wrapper (user_clock2,
     \memdatout[10] ,
     \memdatout[9] ,
     \memdatout[8] }),
-    .dout0({\memdatin[15] ,
-    \memdatin[14] ,
-    \memdatin[13] ,
-    \memdatin[12] ,
-    \memdatin[11] ,
-    \memdatin[10] ,
-    \memdatin[9] ,
-    \memdatin[8] }),
+    .dout0({\memdatin0[15] ,
+    \memdatin0[14] ,
+    \memdatin0[13] ,
+    \memdatin0[12] ,
+    \memdatin0[11] ,
+    \memdatin0[10] ,
+    \memdatin0[9] ,
+    \memdatin0[8] }),
     .dout1({_NC11,
     _NC12,
     _NC13,
@@ -302,14 +350,14 @@ module user_project_wrapper (user_clock2,
     \memdatout[10] ,
     \memdatout[9] ,
     \memdatout[8] }),
-    .dout0({\memdatin[15] ,
-    \memdatin[14] ,
-    \memdatin[13] ,
-    \memdatin[12] ,
-    \memdatin[11] ,
-    \memdatin[10] ,
-    \memdatin[9] ,
-    \memdatin[8] }),
+    .dout0({\memdatin1[15] ,
+    \memdatin1[14] ,
+    \memdatin1[13] ,
+    \memdatin1[12] ,
+    \memdatin1[11] ,
+    \memdatin1[10] ,
+    \memdatin1[9] ,
+    \memdatin1[8] }),
     .dout1({_NC30,
     _NC31,
     _NC32,
@@ -352,14 +400,14 @@ module user_project_wrapper (user_clock2,
     \memdatout[10] ,
     \memdatout[9] ,
     \memdatout[8] }),
-    .dout0({\memdatin[15] ,
-    \memdatin[14] ,
-    \memdatin[13] ,
-    \memdatin[12] ,
-    \memdatin[11] ,
-    \memdatin[10] ,
-    \memdatin[9] ,
-    \memdatin[8] }),
+    .dout0({\memdatin2[15] ,
+    \memdatin2[14] ,
+    \memdatin2[13] ,
+    \memdatin2[12] ,
+    \memdatin2[11] ,
+    \memdatin2[10] ,
+    \memdatin2[9] ,
+    \memdatin2[8] }),
     .dout1({_NC49,
     _NC50,
     _NC51,
@@ -402,14 +450,14 @@ module user_project_wrapper (user_clock2,
     \memdatout[10] ,
     \memdatout[9] ,
     \memdatout[8] }),
-    .dout0({\memdatin[15] ,
-    \memdatin[14] ,
-    \memdatin[13] ,
-    \memdatin[12] ,
-    \memdatin[11] ,
-    \memdatin[10] ,
-    \memdatin[9] ,
-    \memdatin[8] }),
+    .dout0({\memdatin3[15] ,
+    \memdatin3[14] ,
+    \memdatin3[13] ,
+    \memdatin3[12] ,
+    \memdatin3[11] ,
+    \memdatin3[10] ,
+    \memdatin3[9] ,
+    \memdatin3[8] }),
     .dout1({_NC68,
     _NC69,
     _NC70,
@@ -452,14 +500,14 @@ module user_project_wrapper (user_clock2,
     \memdatout[2] ,
     \memdatout[1] ,
     \memdatout[0] }),
-    .dout0({\memdatin[7] ,
-    \memdatin[6] ,
-    \memdatin[5] ,
-    \memdatin[4] ,
-    \memdatin[3] ,
-    \memdatin[2] ,
-    \memdatin[1] ,
-    \memdatin[0] }),
+    .dout0({\memdatin0[7] ,
+    \memdatin0[6] ,
+    \memdatin0[5] ,
+    \memdatin0[4] ,
+    \memdatin0[3] ,
+    \memdatin0[2] ,
+    \memdatin0[1] ,
+    \memdatin0[0] }),
     .dout1({_NC87,
     _NC88,
     _NC89,
@@ -502,14 +550,14 @@ module user_project_wrapper (user_clock2,
     \memdatout[2] ,
     \memdatout[1] ,
     \memdatout[0] }),
-    .dout0({\memdatin[7] ,
-    \memdatin[6] ,
-    \memdatin[5] ,
-    \memdatin[4] ,
-    \memdatin[3] ,
-    \memdatin[2] ,
-    \memdatin[1] ,
-    \memdatin[0] }),
+    .dout0({\memdatin1[7] ,
+    \memdatin1[6] ,
+    \memdatin1[5] ,
+    \memdatin1[4] ,
+    \memdatin1[3] ,
+    \memdatin1[2] ,
+    \memdatin1[1] ,
+    \memdatin1[0] }),
     .dout1({_NC106,
     _NC107,
     _NC108,
@@ -552,14 +600,14 @@ module user_project_wrapper (user_clock2,
     \memdatout[2] ,
     \memdatout[1] ,
     \memdatout[0] }),
-    .dout0({\memdatin[7] ,
-    \memdatin[6] ,
-    \memdatin[5] ,
-    \memdatin[4] ,
-    \memdatin[3] ,
-    \memdatin[2] ,
-    \memdatin[1] ,
-    \memdatin[0] }),
+    .dout0({\memdatin2[7] ,
+    \memdatin2[6] ,
+    \memdatin2[5] ,
+    \memdatin2[4] ,
+    \memdatin2[3] ,
+    \memdatin2[2] ,
+    \memdatin2[1] ,
+    \memdatin2[0] }),
     .dout1({_NC125,
     _NC126,
     _NC127,
@@ -602,14 +650,14 @@ module user_project_wrapper (user_clock2,
     \memdatout[2] ,
     \memdatout[1] ,
     \memdatout[0] }),
-    .dout0({\memdatin[7] ,
-    \memdatin[6] ,
-    \memdatin[5] ,
-    \memdatin[4] ,
-    \memdatin[3] ,
-    \memdatin[2] ,
-    \memdatin[1] ,
-    \memdatin[0] }),
+    .dout0({\memdatin3[7] ,
+    \memdatin3[6] ,
+    \memdatin3[5] ,
+    \memdatin3[4] ,
+    \memdatin3[3] ,
+    \memdatin3[2] ,
+    \memdatin3[1] ,
+    \memdatin3[0] }),
     .dout1({_NC144,
     _NC145,
     _NC146,
@@ -673,22 +721,70 @@ module user_project_wrapper (user_clock2,
     \cpdatout[2] ,
     \cpdatout[1] ,
     \cpdatout[0] }),
-    .data_from_mem({\memdatin[15] ,
-    \memdatin[14] ,
-    \memdatin[13] ,
-    \memdatin[12] ,
-    \memdatin[11] ,
-    \memdatin[10] ,
-    \memdatin[9] ,
-    \memdatin[8] ,
-    \memdatin[7] ,
-    \memdatin[6] ,
-    \memdatin[5] ,
-    \memdatin[4] ,
-    \memdatin[3] ,
-    \memdatin[2] ,
-    \memdatin[1] ,
-    \memdatin[0] }),
+    .data_from_mem0({\memdatin0[15] ,
+    \memdatin0[14] ,
+    \memdatin0[13] ,
+    \memdatin0[12] ,
+    \memdatin0[11] ,
+    \memdatin0[10] ,
+    \memdatin0[9] ,
+    \memdatin0[8] ,
+    \memdatin0[7] ,
+    \memdatin0[6] ,
+    \memdatin0[5] ,
+    \memdatin0[4] ,
+    \memdatin0[3] ,
+    \memdatin0[2] ,
+    \memdatin0[1] ,
+    \memdatin0[0] }),
+    .data_from_mem1({\memdatin1[15] ,
+    \memdatin1[14] ,
+    \memdatin1[13] ,
+    \memdatin1[12] ,
+    \memdatin1[11] ,
+    \memdatin1[10] ,
+    \memdatin1[9] ,
+    \memdatin1[8] ,
+    \memdatin1[7] ,
+    \memdatin1[6] ,
+    \memdatin1[5] ,
+    \memdatin1[4] ,
+    \memdatin1[3] ,
+    \memdatin1[2] ,
+    \memdatin1[1] ,
+    \memdatin1[0] }),
+    .data_from_mem2({\memdatin2[15] ,
+    \memdatin2[14] ,
+    \memdatin2[13] ,
+    \memdatin2[12] ,
+    \memdatin2[11] ,
+    \memdatin2[10] ,
+    \memdatin2[9] ,
+    \memdatin2[8] ,
+    \memdatin2[7] ,
+    \memdatin2[6] ,
+    \memdatin2[5] ,
+    \memdatin2[4] ,
+    \memdatin2[3] ,
+    \memdatin2[2] ,
+    \memdatin2[1] ,
+    \memdatin2[0] }),
+    .data_from_mem3({\memdatin3[15] ,
+    \memdatin3[14] ,
+    \memdatin3[13] ,
+    \memdatin3[12] ,
+    \memdatin3[11] ,
+    \memdatin3[10] ,
+    \memdatin3[9] ,
+    \memdatin3[8] ,
+    \memdatin3[7] ,
+    \memdatin3[6] ,
+    \memdatin3[5] ,
+    \memdatin3[4] ,
+    \memdatin3[3] ,
+    \memdatin3[2] ,
+    \memdatin3[1] ,
+    \memdatin3[0] }),
     .data_to_cpu({\cpdatin[15] ,
     \cpdatin[14] ,
     \cpdatin[13] ,

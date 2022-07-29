@@ -109,7 +109,7 @@ module cpu (
       addr <= pc;
     end else if (t[3]) begin
       addr <= ir[11:0];
-    end else if (!rdwr && (t[4] || (t[5] && ir[15]))) begin
+    end else if (!rdwr && (t[5] && ir[15])) begin
       addr <= datain;
     end
   end

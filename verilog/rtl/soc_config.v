@@ -80,7 +80,10 @@ module soc_config #(
     input [11:0] addr_from_cpu,
     input [15:0] data_from_cpu,
     output [15:0] data_to_cpu,
-    input [15:0] data_from_mem,
+    input [15:0] data_from_mem0,
+    input [15:0] data_from_mem1,
+    input [15:0] data_from_mem2,
+    input [15:0] data_from_mem3,
     output [15:0] data_to_mem,
     output [9:0] addr_to_mem,
     output [3:0] en_to_memB,
@@ -94,6 +97,7 @@ module soc_config #(
     wire [`MPRJ_IO_PADS-1:0] io_out;
     wire [`MPRJ_IO_PADS-1:0] io_oeb;
 
+    wire [15:0] data_from_mem;
     wire [3:0] en_to_mems;
     wire [1:0] addr_to_decod;
     wire n, rw, rst, en_to_decod;
@@ -121,6 +125,7 @@ module soc_config #(
     assign addr_to_mem = la_data_in[127] ? la_data_in[108:99] : addr_from_cpu[9:0];
     assign rw_to_mem = la_data_in[127] ? la_data_in[98] : ~rw_from_cpu; // active low for openram
     assign en_to_decod = la_data_in[127] ? la_data_in[97] : en_from_cpu;
+    assign data_from_mem = addr_to_decod[1] ? ( addr_to_decod [0] ? data_from_mem3 : data_from_mem2 ) : ( addr_to_decod[0] ? data_from_mem1 : data_from_mem0 );
     assign data_to_cpu = data_from_mem;
     assign la_data_out[96:81] = data_from_mem;
     assign en_to_memB = ~en_to_mems; // active low for openram
