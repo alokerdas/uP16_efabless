@@ -11,7 +11,7 @@
 
 * Black-box entry subcircuit for cpu abstract view
 .subckt cpu addr[0] addr[10] addr[11] addr[1] addr[2] addr[3] addr[4] addr[5] addr[6]
-+ addr[7] addr[8] addr[9] clk datain[0] datain[10] datain[11] datain[12] datain[13]
++ addr[7] addr[8] addr[9] clkin datain[0] datain[10] datain[11] datain[12] datain[13]
 + datain[14] datain[15] datain[1] datain[2] datain[3] datain[4] datain[5] datain[6]
 + datain[7] datain[8] datain[9] dataout[0] dataout[10] dataout[11] dataout[12] dataout[13]
 + dataout[14] dataout[15] dataout[1] dataout[2] dataout[3] dataout[4] dataout[5] dataout[6]
@@ -253,7 +253,7 @@ XmemLword1 memLword3/din0[0] memLword3/din0[1] memLword3/din0[2] memLword3/din0[
 + memLword3/addr0[6] memLword3/addr0[7] memLword3/addr0[8] memLword3/addr0[9] memLword1/addr1[0]
 + memLword1/addr1[1] memLword1/addr1[2] memLword1/addr1[3] memLword1/addr1[4] memLword1/addr1[5]
 + memLword1/addr1[6] memLword1/addr1[7] memLword1/addr1[8] memLword1/addr1[9] memLword1/csb0
-+ memLword1/csb1 mprj/rw_to_mem cpu0/clk memLword1/clk1 memLword1/wmask0[0] memLword1/dout0[0]
++ memLword1/csb1 mprj/rw_to_mem cpu0/clkin memLword1/clk1 memLword1/wmask0[0] memLword1/dout0[0]
 + memLword1/dout0[1] memLword1/dout0[2] memLword1/dout0[3] memLword1/dout0[4] memLword1/dout0[5]
 + memLword1/dout0[6] memLword1/dout0[7] memLword1/dout1[0] memLword1/dout1[1] memLword1/dout1[2]
 + memLword1/dout1[3] memLword1/dout1[4] memLword1/dout1[5] memLword1/dout1[6] memLword1/dout1[7]
@@ -264,7 +264,7 @@ XmemLword0 memLword3/din0[0] memLword3/din0[1] memLword3/din0[2] memLword3/din0[
 + memLword3/addr0[6] memLword3/addr0[7] memLword3/addr0[8] memLword3/addr0[9] memLword0/addr1[0]
 + memLword0/addr1[1] memLword0/addr1[2] memLword0/addr1[3] memLword0/addr1[4] memLword0/addr1[5]
 + memLword0/addr1[6] memLword0/addr1[7] memLword0/addr1[8] memLword0/addr1[9] memLword0/csb0
-+ memLword0/csb1 mprj/rw_to_mem cpu0/clk memLword0/clk1 memLword0/wmask0[0] memLword0/dout0[0]
++ memLword0/csb1 mprj/rw_to_mem cpu0/clkin memLword0/clk1 memLword0/wmask0[0] memLword0/dout0[0]
 + memLword0/dout0[1] memLword0/dout0[2] memLword0/dout0[3] memLword0/dout0[4] memLword0/dout0[5]
 + memLword0/dout0[6] memLword0/dout0[7] memLword0/dout1[0] memLword0/dout1[1] memLword0/dout1[2]
 + memLword0/dout1[3] memLword0/dout1[4] memLword0/dout1[5] memLword0/dout1[6] memLword0/dout1[7]
@@ -275,7 +275,7 @@ XmemLword2 memLword3/din0[0] memLword3/din0[1] memLword3/din0[2] memLword3/din0[
 + memLword3/addr0[6] memLword3/addr0[7] memLword3/addr0[8] memLword3/addr0[9] memLword2/addr1[0]
 + memLword2/addr1[1] memLword2/addr1[2] memLword2/addr1[3] memLword2/addr1[4] memLword2/addr1[5]
 + memLword2/addr1[6] memLword2/addr1[7] memLword2/addr1[8] memLword2/addr1[9] memLword2/csb0
-+ memLword2/csb1 mprj/rw_to_mem cpu0/clk memLword2/clk1 memLword2/wmask0[0] memLword2/dout0[0]
++ memLword2/csb1 mprj/rw_to_mem cpu0/clkin memLword2/clk1 memLword2/wmask0[0] memLword2/dout0[0]
 + memLword2/dout0[1] memLword2/dout0[2] memLword2/dout0[3] memLword2/dout0[4] memLword2/dout0[5]
 + memLword2/dout0[6] memLword2/dout0[7] memLword2/dout1[0] memLword2/dout1[1] memLword2/dout1[2]
 + memLword2/dout1[3] memLword2/dout1[4] memLword2/dout1[5] memLword2/dout1[6] memLword2/dout1[7]
@@ -286,7 +286,7 @@ XmemLword3 memLword3/din0[0] memLword3/din0[1] memLword3/din0[2] memLword3/din0[
 + memLword3/addr0[6] memLword3/addr0[7] memLword3/addr0[8] memLword3/addr0[9] memLword3/addr1[0]
 + memLword3/addr1[1] memLword3/addr1[2] memLword3/addr1[3] memLword3/addr1[4] memLword3/addr1[5]
 + memLword3/addr1[6] memLword3/addr1[7] memLword3/addr1[8] memLword3/addr1[9] memLword3/csb0
-+ memLword3/csb1 mprj/rw_to_mem cpu0/clk memLword3/clk1 memLword3/wmask0[0] memLword3/dout0[0]
++ memLword3/csb1 mprj/rw_to_mem cpu0/clkin memLword3/clk1 memLword3/wmask0[0] memLword3/dout0[0]
 + memLword3/dout0[1] memLword3/dout0[2] memLword3/dout0[3] memLword3/dout0[4] memLword3/dout0[5]
 + memLword3/dout0[6] memLword3/dout0[7] memLword3/dout1[0] memLword3/dout1[1] memLword3/dout1[2]
 + memLword3/dout1[3] memLword3/dout1[4] memLword3/dout1[5] memLword3/dout1[6] memLword3/dout1[7]
@@ -297,7 +297,7 @@ XmemHword0 memHword3/din0[0] memHword3/din0[1] memHword3/din0[2] memHword3/din0[
 + memLword3/addr0[6] memLword3/addr0[7] memLword3/addr0[8] memLword3/addr0[9] memHword0/addr1[0]
 + memHword0/addr1[1] memHword0/addr1[2] memHword0/addr1[3] memHword0/addr1[4] memHword0/addr1[5]
 + memHword0/addr1[6] memHword0/addr1[7] memHword0/addr1[8] memHword0/addr1[9] memLword0/csb0
-+ memHword0/csb1 mprj/rw_to_mem cpu0/clk memHword0/clk1 memHword0/wmask0[0] memHword0/dout0[0]
++ memHword0/csb1 mprj/rw_to_mem cpu0/clkin memHword0/clk1 memHword0/wmask0[0] memHword0/dout0[0]
 + memHword0/dout0[1] memHword0/dout0[2] memHword0/dout0[3] memHword0/dout0[4] memHword0/dout0[5]
 + memHword0/dout0[6] memHword0/dout0[7] memHword0/dout1[0] memHword0/dout1[1] memHword0/dout1[2]
 + memHword0/dout1[3] memHword0/dout1[4] memHword0/dout1[5] memHword0/dout1[6] memHword0/dout1[7]
@@ -308,13 +308,13 @@ XmemHword1 memHword3/din0[0] memHword3/din0[1] memHword3/din0[2] memHword3/din0[
 + memLword3/addr0[6] memLword3/addr0[7] memLword3/addr0[8] memLword3/addr0[9] memHword1/addr1[0]
 + memHword1/addr1[1] memHword1/addr1[2] memHword1/addr1[3] memHword1/addr1[4] memHword1/addr1[5]
 + memHword1/addr1[6] memHword1/addr1[7] memHword1/addr1[8] memHword1/addr1[9] memLword1/csb0
-+ memHword1/csb1 mprj/rw_to_mem cpu0/clk memHword1/clk1 memHword1/wmask0[0] memHword1/dout0[0]
++ memHword1/csb1 mprj/rw_to_mem cpu0/clkin memHword1/clk1 memHword1/wmask0[0] memHword1/dout0[0]
 + memHword1/dout0[1] memHword1/dout0[2] memHword1/dout0[3] memHword1/dout0[4] memHword1/dout0[5]
 + memHword1/dout0[6] memHword1/dout0[7] memHword1/dout1[0] memHword1/dout1[1] memHword1/dout1[2]
 + memHword1/dout1[3] memHword1/dout1[4] memHword1/dout1[5] memHword1/dout1[6] memHword1/dout1[7]
 + vccd1 vssd1 sky130_sram_1kbyte_1rw1r_8x1024_8
 Xcpu0 cpu0/addr[0] cpu0/addr[10] cpu0/addr[11] cpu0/addr[1] cpu0/addr[2] cpu0/addr[3]
-+ cpu0/addr[4] cpu0/addr[5] cpu0/addr[6] cpu0/addr[7] cpu0/addr[8] cpu0/addr[9] cpu0/clk
++ cpu0/addr[4] cpu0/addr[5] cpu0/addr[6] cpu0/addr[7] cpu0/addr[8] cpu0/addr[9] cpu0/clkin
 + cpu0/datain[0] cpu0/datain[10] cpu0/datain[11] cpu0/datain[12] cpu0/datain[13] cpu0/datain[14]
 + cpu0/datain[15] cpu0/datain[1] cpu0/datain[2] cpu0/datain[3] cpu0/datain[4] cpu0/datain[5]
 + cpu0/datain[6] cpu0/datain[7] cpu0/datain[8] cpu0/datain[9] cpu0/dataout[0] cpu0/dataout[10]
@@ -330,7 +330,7 @@ XmemHword2 memHword3/din0[0] memHword3/din0[1] memHword3/din0[2] memHword3/din0[
 + memLword3/addr0[6] memLword3/addr0[7] memLword3/addr0[8] memLword3/addr0[9] memHword2/addr1[0]
 + memHword2/addr1[1] memHword2/addr1[2] memHword2/addr1[3] memHword2/addr1[4] memHword2/addr1[5]
 + memHword2/addr1[6] memHword2/addr1[7] memHword2/addr1[8] memHword2/addr1[9] memLword2/csb0
-+ memHword2/csb1 mprj/rw_to_mem cpu0/clk memHword2/clk1 memHword2/wmask0[0] memHword2/dout0[0]
++ memHword2/csb1 mprj/rw_to_mem cpu0/clkin memHword2/clk1 memHword2/wmask0[0] memHword2/dout0[0]
 + memHword2/dout0[1] memHword2/dout0[2] memHword2/dout0[3] memHword2/dout0[4] memHword2/dout0[5]
 + memHword2/dout0[6] memHword2/dout0[7] memHword2/dout1[0] memHword2/dout1[1] memHword2/dout1[2]
 + memHword2/dout1[3] memHword2/dout1[4] memHword2/dout1[5] memHword2/dout1[6] memHword2/dout1[7]
@@ -341,7 +341,7 @@ XmemHword3 memHword3/din0[0] memHword3/din0[1] memHword3/din0[2] memHword3/din0[
 + memLword3/addr0[6] memLword3/addr0[7] memLword3/addr0[8] memLword3/addr0[9] memHword3/addr1[0]
 + memHword3/addr1[1] memHword3/addr1[2] memHword3/addr1[3] memHword3/addr1[4] memHword3/addr1[5]
 + memHword3/addr1[6] memHword3/addr1[7] memHword3/addr1[8] memHword3/addr1[9] memLword3/csb0
-+ memHword3/csb1 mprj/rw_to_mem cpu0/clk memHword3/clk1 memHword3/wmask0[0] memHword3/dout0[0]
++ memHword3/csb1 mprj/rw_to_mem cpu0/clkin memHword3/clk1 memHword3/wmask0[0] memHword3/dout0[0]
 + memHword3/dout0[1] memHword3/dout0[2] memHword3/dout0[3] memHword3/dout0[4] memHword3/dout0[5]
 + memHword3/dout0[6] memHword3/dout0[7] memHword3/dout1[0] memHword3/dout1[1] memHword3/dout1[2]
 + memHword3/dout1[3] memHword3/dout1[4] memHword3/dout1[5] memHword3/dout1[6] memHword3/dout1[7]
@@ -451,7 +451,7 @@ Xmprj cpu0/addr[0] cpu0/addr[10] cpu0/addr[11] cpu0/addr[1] cpu0/addr[2] cpu0/ad
 + la_oenb[81] la_oenb[82] la_oenb[83] la_oenb[84] la_oenb[85] la_oenb[86] la_oenb[87]
 + la_oenb[88] la_oenb[89] la_oenb[8] la_oenb[90] la_oenb[91] la_oenb[92] la_oenb[93]
 + la_oenb[94] la_oenb[95] la_oenb[96] la_oenb[97] la_oenb[98] la_oenb[99] la_oenb[9]
-+ cpu0/rdwr mprj/rw_to_mem cpu0/clk cpu0/rst user_clock2 vccd1 vssd1 wb_clk_i wb_rst_i
++ cpu0/rdwr mprj/rw_to_mem cpu0/clkin cpu0/rst user_clock2 vccd1 vssd1 wb_clk_i wb_rst_i
 + wbs_ack_o wbs_adr_i[0] wbs_adr_i[10] wbs_adr_i[11] wbs_adr_i[12] wbs_adr_i[13] wbs_adr_i[14]
 + wbs_adr_i[15] wbs_adr_i[16] wbs_adr_i[17] wbs_adr_i[18] wbs_adr_i[19] wbs_adr_i[1]
 + wbs_adr_i[20] wbs_adr_i[21] wbs_adr_i[22] wbs_adr_i[23] wbs_adr_i[24] wbs_adr_i[25]

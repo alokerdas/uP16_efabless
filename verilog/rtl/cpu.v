@@ -3,7 +3,7 @@ module cpu (
   vccd1,
   vssd1,
 `endif
-  clk,
+  clkin,
   addr,
   datain,
   dataout,
@@ -24,7 +24,7 @@ module cpu (
   input [15:0] datain;
   output [15:0] dataout;
   output [11:0] addr;
-  input clk, en_inp, en_out, rst;
+  input clkin, en_inp, en_out, rst;
   output en, rdwr;
   input [7:0] keyboard;
   output [7:0] display;
@@ -35,12 +35,10 @@ module cpu (
   reg [10:0] t;
   wire [7:0] d;
   wire rstEn, rstT;
-  wire rdwr, en;
+  wire rdwr, en, clk;
 
-`ifdef DEBUG
-  debug debug1(.of(e), .lcd(display), .dcod(d), .fsm(t), .ar(addr), .prgctr(pc), .datr(dr), .accu(ac), .instr(ir));
-`endif
 
+  assign clk = clkin || (!ir[15] && d[7] && t[3] && ir[0]);
   assign dataout = (t[4] && d[3]) ? ac : 16'hzzzz;
   assign dataout = (t[4] && d[5]) ? {4'h0, pc} : 16'hzzzz;
   assign dataout = (t[6] && d[6]) ? dr : 16'hzzzz;

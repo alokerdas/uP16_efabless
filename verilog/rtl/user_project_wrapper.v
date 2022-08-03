@@ -150,7 +150,7 @@ cpu cpu0 (
     .vssd1(vssd1),	// User area 1 digital ground
 `endif
 
-    .clk(clk),
+    .clkin(clk),
     .addr(adr_cpu),
     .datain(cpdatin), 
     .dataout(cpdatout),

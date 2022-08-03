@@ -199,7 +199,7 @@ module user_project_wrapper (user_clock2,
  wire memrwb;
  wire rst;
 
- cpu cpu0 (.clk(clk),
+ cpu cpu0 (.clkin(clk),
     .en(cpuen),
     .en_inp(enkbd),
     .en_out(endisp),
