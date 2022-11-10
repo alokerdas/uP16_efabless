@@ -24,8 +24,8 @@ module cpu (
   input [15:0] datain;
   output [15:0] dataout;
   output [11:0] addr;
-  input clkin, en_inp, en_out, rst;
-  output en, rdwr;
+  input clkin, en_inp, rst;
+  output en, rdwr, en_out;
   input [7:0] keyboard;
   output [7:0] display;
 
@@ -43,7 +43,8 @@ module cpu (
   assign dataout = (t[4] && d[5]) ? {4'h0, pc} : 16'hzzzz;
   assign dataout = (t[6] && d[6]) ? dr : 16'hzzzz;
 
-  assign display = (t[3] && d[7] && ir[10] && ir[15] && en_out) ? ac[7:0] : display;
+  assign en_out =   t[3] && d[7] && ir[10] && ir[15];
+  assign display = en_out ? ac[7:0] : display;
 
   DECODER decode2 (
     .d(d),
