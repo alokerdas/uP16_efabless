@@ -101,3 +101,4 @@ set ::env(TAP_DECAP_INSERTION) 0
 set ::env(CLOCK_TREE_SYNTH) 0
 
 set ::env(RUN_MAGIC_DRC) 0
+set ::env(RUN_KLAYOUT_XOR) 0

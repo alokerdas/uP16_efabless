@@ -100,15 +100,20 @@ module soc_config #(
     wire [15:0] data_from_mem;
     wire [3:0] en_to_mems;
     wire [1:0] addr_to_decod;
-    wire n, rw, rst, en_to_decod;
+    wire en_to_decod;
 
     // IRQ
     assign irq = 3'b000;	// Unused
 
-    // IO
+    // floating unused outputs
+    assign io_out[21:0] = 22'h000000;
+    assign io_out[37:30] = 8'h00;
+
+    // IO Config
     assign io_oeb[37:30] = 8'hFF; // input
     assign io_oeb[29:22] = 8'h00; // output
-    assign io_oeb[21:18] = 8'hFF; // input
+    assign io_oeb[21:18] = 4'hF; // input
+    assign io_oeb[17:0] = 18'hFFFFF; // input but unused
 
     // LA
     // if la_data_in[0] is input, then wbclk or usrclk can be used. Else io_in[19] is the clock
@@ -121,7 +126,7 @@ module soc_config #(
 
     // Provision to read/write ram from LA
     assign data_to_mem = la_data_in[127] ? la_data_in[126:111] : data_from_cpu;
-    assign addr_to_decod = la_data_in[127] ? la_data_in[110:109] : addr_from_cpu[9:0];
+    assign addr_to_decod = la_data_in[127] ? la_data_in[110:109] : addr_from_cpu[11:10];
     assign addr_to_mem = la_data_in[127] ? la_data_in[108:99] : addr_from_cpu[9:0];
     assign rw_to_mem = la_data_in[127] ? la_data_in[98] : ~rw_from_cpu; // active low for openram
     assign en_to_decod = la_data_in[127] ? la_data_in[97] : en_from_cpu;
